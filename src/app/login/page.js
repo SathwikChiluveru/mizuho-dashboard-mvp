@@ -10,15 +10,19 @@ import {
   Text,
 } from '@chakra-ui/react'
 import { useState } from 'react'
+import { useRouter } from 'next/navigation'
 
 export default function LoginPage() {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [isLoading, setIsLoading] = useState(false)
+  const router = useRouter();
+
 
   const handleLogin = () => {
     setIsLoading(true)
     setTimeout(() => setIsLoading(false), 2000)
+    router.push('/dashboard'); 
   }
 
   return (
